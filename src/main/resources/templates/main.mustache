@@ -1,0 +1,43 @@
+<html>
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden", name="_csrf", value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form method="post" action="add">
+        <input type="hidden", name="_csrf", value="{{_csrf.token}}" />
+        <input type="text" , name="firstName" , placeholder="First Name">
+        <input type="text" , name="lastName" , placeholder="Last Name">
+        <input type="text" , name="patronymic" , placeholder="Patronymic">
+        <input type="text" , name="phoneNumber" , placeholder="Phone Number">
+        <input type="text" , name="address" , placeholder="Home Address">
+        <input type="email" , name="email" , placeholder="Email">
+
+        <button type="submit">Send</button>
+    </form>
+</div>
+<div>All RECORDS</div>
+{{#records}}
+<div>
+    <b>{{id}}</b>
+    <span>{{firstName}}</span>
+    <span>{{lastName}}</span>
+    <span>{{patronymic}}</span>
+    <span>{{phoneNumber}}</span>
+    <span>{{address}}</span>
+    <span>{{email}}</span>
+</div>
+{{/records}}
+<div>
+    <form method="post" action="/deleted">
+        <input type="hidden", name="_csrf", value="{{_csrf.token}}" />
+        <input type="text" name="deleterecord">
+
+        <button type="submit">Delete Record on index</button>
+    </form>
+</div>
+</body>
+</html>
